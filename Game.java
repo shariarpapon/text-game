@@ -1,21 +1,32 @@
+import java.util.Random;
+
 public class Game
 {
     public static void main(String[] args) 
     {
-        String msg = "Sentence 1 goes here.\nSentence 2 goes here.\nSentence 3 goes here.\n\n";
+        Random rand = new Random(System.currentTimeMillis());
+
+        String msg = "The adventure starts as Galahara finds herself in the depths of the dwarven dungeons."+
+        "\nUpon igniting her lantern, she hears distant screeches of beings not of this world.\n"+
+        "AS Galahara courageously moves onward, three undead ghouls emerge from the lightless corridors.\n\n";
+
         System.out.print(msg);
 
         //Player Stats
         String player = "Galahara";
-        int health = 60;
-        int attackPower = 9;
-        int armorLevel = 3;
+        int health = rand.nextInt(50, 101);
+        int attackPower = rand.nextInt(5, 16);
+        int armorLevel = rand.nextInt(3, 6);
+
+        String enemyType = "Ghoul";
+        int enemyIndex = 0;
 
         //Enemy 1 Stats
-        String enemy = "Ghoul 1";
-        int enemyHealth = 11;
-        int enemyAttackPower = 6;
-        int enemyArmorLevel = 2; 
+        enemyIndex++;
+        String enemy = enemyType + " " + enemyIndex;
+        int enemy1Health = rand.nextInt(5, 16);
+        int enemy1AttackPower = rand.nextInt(5, 11);
+        int enemy1ArmorLevel = rand.nextInt(1, 4); 
 
         //Confrontation 1 Started ###################################################################
         msg = enemy + " is attacking " + player + "\n-----------Controntation Started------------\n\n";
@@ -29,13 +40,13 @@ public class Game
 
         //Enemy info
         System.out.print("Enemy: " + enemy + "\n");
-        System.out.print("Health: " + enemyHealth + "\n");
-        System.out.print("Attack Power: " + enemyAttackPower + "\n");
-        System.out.print("Armor Level: " + enemyArmorLevel + "\n\n");
+        System.out.print("Health: " + enemy1Health + "\n");
+        System.out.print("Attack Power: " + enemy1AttackPower + "\n");
+        System.out.print("Armor Level: " + enemy1ArmorLevel + "\n\n");
 
         //Enemy attacks player
-        health = health - enemyAttackPower + armorLevel;
-        System.out.print(enemy + " attacks with attack power " + enemyAttackPower + "\n");
+        health = health - enemy1AttackPower + armorLevel;
+        System.out.print(enemy + " attacks with attack power " + enemy1AttackPower + "\n");
         System.out.print(player + "'s health has been reduced to " + health + "\n\n");
 
         boolean survived = health > 0;
@@ -45,10 +56,11 @@ public class Game
 
 
         //Enemy 2 info
-        enemy = "Ghoul 2";
-        enemyHealth = 6;
-        enemyAttackPower = 8;
-        enemyArmorLevel = 1;
+        enemyIndex++;
+        enemy = enemyType + " " + enemyIndex;
+        int enemy2Health = rand.nextInt(5, 16);
+        int enemy2AttackPower = rand.nextInt(5, 11);
+        int enemy2ArmorLevel = rand.nextInt(1, 4); 
 
         //Confrontation 2 Started ###################################################################
         msg = enemy + " is attacking " + player + "\n-----------Controntation Started------------\n\n";
@@ -62,13 +74,13 @@ public class Game
 
         //Enemy info
         System.out.print("Enemy: " + enemy + "\n");
-        System.out.print("Health: " + enemyHealth + "\n");
-        System.out.print("Attack Power: " + enemyAttackPower + "\n");
-        System.out.print("Armor Level: " + enemyArmorLevel + "\n\n");
+        System.out.print("Health: " + enemy2Health + "\n");
+        System.out.print("Attack Power: " + enemy2AttackPower + "\n");
+        System.out.print("Armor Level: " + enemy2ArmorLevel + "\n\n");
 
         //Enemy attacks player
-        health = health - enemyAttackPower + armorLevel;
-        System.out.print(enemy + " attacks with attack power " + enemyAttackPower + "\n");
+        health = health - enemy2AttackPower + armorLevel;
+        System.out.print(enemy + " attacks with attack power " + enemy2AttackPower + "\n");
         System.out.print(player + "'s health has been reduced to " + health + "\n\n");
 
         survived = health > 0;
@@ -78,10 +90,11 @@ public class Game
 
 
         //Enemy 3 info
-        enemy = "Ghoul 3";
-        enemyHealth = 9;
-        enemyAttackPower = 6;
-        enemyArmorLevel = 3;
+        enemyIndex++;
+        enemy = enemyType + " " + enemyIndex;
+        int enemy3Health = rand.nextInt(5, 16);
+        int enemy3AttackPower = rand.nextInt(5, 11);
+        int enemy3ArmorLevel = rand.nextInt(1, 4);
 
         //Confrontation 3 Started ###################################################################
         msg = enemy + " is attacking " + player + "\n-----------Controntation Started------------\n\n";
@@ -95,13 +108,13 @@ public class Game
 
         //Enemy info
         System.out.print("Enemy: " + enemy + "\n");
-        System.out.print("Health: " + enemyHealth + "\n");
-        System.out.print("Attack Power: " + enemyAttackPower + "\n");
-        System.out.print("Armor Level: " + enemyArmorLevel + "\n\n");
+        System.out.print("Health: " + enemy3Health + "\n");
+        System.out.print("Attack Power: " + enemy3AttackPower + "\n");
+        System.out.print("Armor Level: " + enemy3ArmorLevel + "\n\n");
 
         //Enemy attacks player
-        health = health - enemyAttackPower + armorLevel;
-        System.out.print(enemy + " attacks with attack power " + enemyAttackPower + "\n");
+        health = health - enemy3AttackPower + armorLevel;
+        System.out.print(enemy + " attacks with attack power " + enemy3AttackPower + "\n");
         System.out.print(player + "'s health has been reduced to " + health + "\n\n");
 
         survived = health > 0;
@@ -110,14 +123,13 @@ public class Game
         //Confrontation 3 Ended ##################################################################
 
 
-        //Player attacks enemy --------------------------------------------------------------------------
-        
-        //Enemy 1 info
-        enemy = "Ghoul 1";
-        enemyHealth = 11;
-        enemyAttackPower = 6;
-        enemyArmorLevel = 2; 
+        //Player attacks enemy -----------------------------------------------------------------------------------------
+        //Reset enemy index
+        enemyIndex = 0;
 
+        //Format enemy name
+        enemyIndex++;
+        enemy = enemyType + " " + enemyIndex;
 
         //Confrontation 1 Started *************************************************************************
         msg = player + " is attacking " + enemy + "\n-----------Controntation Started------------\n\n";
@@ -131,26 +143,24 @@ public class Game
 
         //Enemy info
         System.out.print("Enemy: " + enemy + "\n");
-        System.out.print("Health: " + enemyHealth + "\n");
-        System.out.print("Attack Power: " + enemyAttackPower + "\n");
-        System.out.print("Armor Level: " + enemyArmorLevel + "\n\n");
+        System.out.print("Health: " + enemy1Health + "\n");
+        System.out.print("Attack Power: " + enemy1AttackPower + "\n");
+        System.out.print("Armor Level: " + enemy1ArmorLevel + "\n\n");
 
-        enemyHealth = enemyHealth - attackPower + enemyArmorLevel;
+        enemy1Health = enemy1Health - attackPower + enemy1ArmorLevel;
 
         System.out.print(player + " attacks with attack power " + attackPower + "\n");
-        System.out.print(enemy + "'s health has been reduced to " + enemyHealth + "\n\n");
+        System.out.print(enemy + "'s health has been reduced to " + enemy1Health + "\n\n");
 
-        survived = enemyHealth > 0;
+        survived = enemy1Health > 0;
 
         System.out.print( enemy + " has survived = " + survived + "\n"); 
         System.out.print("-----------Confrontation Complete----------\n\n");
         //Confrontation 1 Ended *****************************************************************************
 
         //Enemy 2 info
-        enemy = "Ghoul 2";
-        enemyHealth = 6;
-        enemyAttackPower = 8;
-        enemyArmorLevel = 1; 
+        enemyIndex++;
+        enemy = enemyType + " " + enemyIndex;
 
         //Confrontation 2 Started *************************************************************************
         msg = player + " is attacking " + enemy + "\n-----------Controntation Started------------\n\n";
@@ -164,16 +174,16 @@ public class Game
 
         //Enemy info
         System.out.print("Enemy: " + enemy + "\n");
-        System.out.print("Health: " + enemyHealth + "\n");
-        System.out.print("Attack Power: " + enemyAttackPower + "\n");
-        System.out.print("Armor Level: " + enemyArmorLevel + "\n\n");
+        System.out.print("Health: " + enemy2Health + "\n");
+        System.out.print("Attack Power: " + enemy2AttackPower + "\n");
+        System.out.print("Armor Level: " + enemy2ArmorLevel + "\n\n");
 
-        enemyHealth = enemyHealth - attackPower + enemyArmorLevel;
+        enemy2Health = enemy2Health - attackPower + enemy2ArmorLevel;
 
         System.out.print(player + " attacks with attack power " + attackPower + "\n");
-        System.out.print(enemy + "'s health has been reduced to " + enemyHealth + "\n\n");
+        System.out.print(enemy + "'s health has been reduced to " + enemy2Health + "\n\n");
 
-        survived = enemyHealth > 0;
+        survived = enemy2Health > 0;
 
         System.out.print( enemy + " has survived = " + survived + "\n"); 
         System.out.print("-----------Confrontation Complete----------\n\n");
@@ -181,10 +191,8 @@ public class Game
 
 
         //Enemy 3 info
-        enemy = "Ghoul 3";
-        enemyHealth = 9;
-        enemyAttackPower = 6;
-        enemyArmorLevel = 3; 
+        enemyIndex++;
+        enemy = enemyType + " " + enemyIndex;
 
         //Confrontation 3 Started *************************************************************************
         msg = player + " is attacking " + enemy + "\n-----------Controntation Started------------\n\n";
@@ -198,16 +206,16 @@ public class Game
 
         //Enemy info
         System.out.print("Enemy: " + enemy + "\n");
-        System.out.print("Health: " + enemyHealth + "\n");
-        System.out.print("Attack Power: " + enemyAttackPower + "\n");
-        System.out.print("Armor Level: " + enemyArmorLevel + "\n\n");
+        System.out.print("Health: " + enemy3Health + "\n");
+        System.out.print("Attack Power: " + enemy3AttackPower + "\n");
+        System.out.print("Armor Level: " + enemy3ArmorLevel + "\n\n");
 
-        enemyHealth = enemyHealth - attackPower + enemyArmorLevel;
+        enemy3Health = enemy3Health - attackPower + enemy3ArmorLevel;
 
         System.out.print(player + " attacks with attack power " + attackPower + "\n");
-        System.out.print(enemy + "'s health has been reduced to " + enemyHealth + "\n\n");
+        System.out.print(enemy + "'s health has been reduced to " + enemy3Health + "\n\n");
 
-        survived = enemyHealth > 0;
+        survived = enemy3Health > 0;
 
         System.out.print( enemy + " has survived = " + survived + "\n"); 
         System.out.print("-----------Confrontation Complete----------\n\n");
