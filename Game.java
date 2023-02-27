@@ -8,7 +8,7 @@ public class Game
 
         String msg = "The adventure starts as Galahara finds herself in the depths of the dwarven dungeons."+
         "\nUpon igniting her lantern, she hears distant screeches of beings not of this world.\n"+
-        "AS Galahara courageously moves onward, three undead ghouls emerge from the lightless corridors.\n\n";
+        "As Galahara courageously moves onward, three undead ghouls emerge from the lightless corridors.\n\n";
 
         System.out.print(msg);
 
