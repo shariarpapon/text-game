@@ -2,7 +2,7 @@ public class Game
 {
     public static void main(String[] args) 
     {
-        String msg = "Welcome adventurer...\n\n";
+        String msg = "Sentence 1 goes here.\nSentence 2 goes here.\nSentence 3 goes here.\n\n";
         System.out.print(msg);
 
         //Player Stats
